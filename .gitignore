@@ -197,3 +197,5 @@ Pipfile.lock
 
 # Ignore installed packages from vcpkg
 packages/
+# DevContainer override files
+.devcontainer/docker-compose.override.yml
