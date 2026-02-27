@@ -2,15 +2,13 @@ version: '3.8'
 
 services:
   cppbench:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        USERNAME: vscode
-        USER_UID: 1000
-        USER_GID: 1000
+    env_file: ../.env
+    image: cpp-bench:${USER}
+    container_name: cpp_bench
     
     volumes:
+      # Mount full host home directory
+      - ~:/home/vscode:cached
       - ../..:/workspace:cached
       - cppbench-vscode-server:/home/vscode/.vscode-server
       - cppbench-bash-history:/home/vscode/.bash_history
