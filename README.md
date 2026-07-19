@@ -273,13 +273,13 @@ cppcheck --enable=all --std=c++20 src/
 ### Multiple Compiler Testing
 ```bash
 # Switch to Clang
-export CC=clang-15
-export CXX=clang++-15
+export CC=clang-19
+export CXX=clang++-19
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 
 # Switch back to GCC
-export CC=gcc-12
-export CXX=g++-12
+export CC=gcc-14
+export CXX=g++-14
 ```
 
 ### Cross-Platform Development
