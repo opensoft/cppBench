@@ -18,8 +18,11 @@ services:
       - VCPKG_ROOT=/opt/vcpkg
       - CC=/usr/bin/gcc-12
       - CXX=/usr/bin/g++-12
+    networks:
+      - cpp-bench-net
 
 networks:
-  default:
+  cpp-bench-net:
+    name: cpp-bench_default
     driver_opts:
       com.docker.network.driver.mtu: "1400"
