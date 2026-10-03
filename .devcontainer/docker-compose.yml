@@ -5,7 +5,9 @@ services:
     env_file: .env
     image: cpp-bench:${USER:-brett}
     container_name: cpp-bench
-    command: sleep infinity
+    command: ["/bin/bash", "-c", 'sudo install -d -m 0700 -o "$$(id -u)" -g "$$(id -g)" "$$HOME/.workbenches-history" && if [ -f "$$HOME/.workbenches-history/.zsh_history" ]; then sudo chown "$$(id -u):$$(id -g)" "$$HOME/.workbenches-history/.zsh_history"; fi && exec sleep infinity']
+    volumes:
+      - cppbench-zshhistory:/home/${USER:-brett}/.workbenches-history
     working_dir: /workspace
     tty: true
     cap_add:
@@ -21,6 +23,9 @@ services:
       - CXX=/usr/bin/g++-12
     networks:
       - cpp-bench-net
+
+volumes:
+  cppbench-zshhistory:
 
 networks:
   cpp-bench-net:
