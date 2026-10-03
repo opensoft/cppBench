@@ -15,6 +15,7 @@ services:
     ulimits:
       core: -1
     environment:
+      - HISTFILE=/home/${USER:-brett}/.workbenches-history/.zsh_history
       - VCPKG_ROOT=/opt/vcpkg
       - CC=/usr/bin/gcc-12
       - CXX=/usr/bin/g++-12
