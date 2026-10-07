@@ -2,6 +2,7 @@ name: dev-benches
 
 services:
   cpp-bench:
+    init: true
     env_file: .env
     image: cpp-bench:${USER:-brett}
     container_name: cpp-bench
